@@ -14,6 +14,7 @@ const messages = {
   emailValid: "Must be a valid Email-Id.",
   emailExistandVerify: "We have an existing user with this email-id!!, Please Login",
   emailExistbutnotVerify: "We have an existing user with this email-id. But not verify, Please login to verify",
+  emailExistUnverifiedResendOTP: "Your email is already registered but not verified. We have sent a new verification OTP to your mail",
   mobileValid: "Must be a valid mobile number.",
   mobileExist: "Mobile number already registered.",
   passwordRequired: "Password is required.",
@@ -60,6 +61,7 @@ const messages = {
   errorToSentOtp:"error to sent otp!!",
   emailNotExist:"Email not exist!!",
   emailExistplsverifywithotp:"Your email is already registered.Please verify account: OTP sent to your mail",
+  emailExistUnverifiedResendOTP: "Your email is already registered but not verified. We have sent a new verification OTP to your mail",
   afterloginverifywithotp:"Before login please verify account: OTP sent to your mail",
 
 
