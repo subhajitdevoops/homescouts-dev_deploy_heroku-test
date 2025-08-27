@@ -222,8 +222,8 @@ const userverify=async (req,res,next)=>{
             ).exec(function (err, result) {
                     if (err) {
                         res.send({
-                            success: true,
-                            statuscode: 200,
+                            success: false,
+                            statuscode: 500,
                             message: messages.errorToSentOtp,
                             response:err
                         })
@@ -257,6 +257,7 @@ const userverify=async (req,res,next)=>{
                                 res.send({
                                     success: true,
                                     statuscode: 200,
+                                    otpRequired: true,
                                     message:  messages.afterloginverifywithotp,
                                 })
                             }
