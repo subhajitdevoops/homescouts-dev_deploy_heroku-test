@@ -2411,7 +2411,11 @@ var userService = {
             ).exec(function (err, result) {
                 if (!err) {
                     var transporter = nodemailer.createTransport({
+<<<<<<< HEAD
                         service: '',
+=======
+                        service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                         auth: {
                             user: config.emailauth.user,
                             pass: config.emailauth.passKey
@@ -2485,7 +2489,16 @@ var userService = {
                             })
                         }
                         else {
+<<<<<<< HEAD
                             if (result.currentOtp === data.otp) {
+=======
+                            // Try multiple comparison methods to handle data type mismatches
+                            const otpMatch = result.currentOtp === data.otp || 
+                                           String(result.currentOtp) === String(data.otp) ||
+                                           Number(result.currentOtp) === Number(data.otp);
+                            
+                            if (otpMatch) {
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                 const hash = bcryptjs.hashSync(data.newpassword, saltRounds);
                                 userschema.updateOne({ $or: [{ _id: data._id }, { email: data.email }] }, { $set: { password: hash, is_verified: 1 } }).exec();
 
@@ -2566,7 +2579,11 @@ var userService = {
             ).exec(function (err, result) {
                 if (!err) {
                     var transporter = nodemailer.createTransport({
+<<<<<<< HEAD
                         service: '',
+=======
+                        service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                         auth: {
                             user: config.emailauth.user,
                             pass: config.emailauth.passKey
@@ -2640,7 +2657,16 @@ var userService = {
                             })
                         }
                         else {
+<<<<<<< HEAD
                             if (result.currentOtp === data.otp) {
+=======
+                            // Try multiple comparison methods to handle data type mismatches
+                            const otpMatch = result.currentOtp === data.otp || 
+                                           String(result.currentOtp) === String(data.otp) ||
+                                           Number(result.currentOtp) === Number(data.otp);
+                            
+                            if (otpMatch) {
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                 userschema.updateOne({ $or: [{ _id: data._id }, { email: data.email }] }, { $set: { email: data.newemail, is_verified: 1 } }).exec();
                                 callback({
                                     success: true,
@@ -2755,7 +2781,16 @@ var userService = {
                             })
                         }
                         else {
+<<<<<<< HEAD
                             if (result.currentOtp === data.otp) {
+=======
+                            // Try multiple comparison methods to handle data type mismatches
+                            const otpMatch = result.currentOtp === data.otp || 
+                                           String(result.currentOtp) === String(data.otp) ||
+                                           Number(result.currentOtp) === Number(data.otp);
+                            
+                            if (otpMatch) {
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
 
                                 userschema.updateOne({ $or: [{ _id: data.userId }, { email: data.email }] }, { $set: { mobilenumber: data.newnumber, is_verified: 1 } }).exec();
                                 callback({
@@ -2799,7 +2834,11 @@ var userService = {
             ).exec(function (err, result) {
                 if (!err) {
                     var transporter = nodemailer.createTransport({
+<<<<<<< HEAD
                         service: '',
+=======
+                        service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                         auth: {
                             user: config.emailauth.user,
                             pass: config.emailauth.passKey
@@ -2873,7 +2912,16 @@ var userService = {
                             })
                         }
                         else {
+<<<<<<< HEAD
                             if (result.currentOtp === data.otp) {
+=======
+                            // Try multiple comparison methods to handle data type mismatches
+                            const otpMatch = result.currentOtp === data.otp || 
+                                           String(result.currentOtp) === String(data.otp) ||
+                                           Number(result.currentOtp) === Number(data.otp);
+                            
+                            if (otpMatch) {
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                 userschema.updateOne({ $or: [{ _id: data._id }, { email: data.email }] }, { $set: { rera_number: data.rera_number } }).exec();
                                 callback({
                                     success: true,
@@ -2918,7 +2966,11 @@ var userService = {
             ).exec(function (err, result) {
                 if (!err) {
                     var transporter = nodemailer.createTransport({
+<<<<<<< HEAD
                         service: '',
+=======
+                        service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                         auth: {
                             user: config.emailauth.user,
                             pass: config.emailauth.passKey
@@ -2992,7 +3044,16 @@ var userService = {
                             })
                         }
                         else {
+<<<<<<< HEAD
                             if (result.currentOtp === data.otp) {
+=======
+                            // Try multiple comparison methods to handle data type mismatches
+                            const otpMatch = result.currentOtp === data.otp || 
+                                           String(result.currentOtp) === String(data.otp) ||
+                                           Number(result.currentOtp) === Number(data.otp);
+                            
+                            if (otpMatch) {
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
 
                                 userschema.updateOne({ $or: [{ _id: data._id }, { email: data.email }] }, { $set: { mobilenumber: data.newnumber, is_verified: 1 } }).exec();
                                 callback({

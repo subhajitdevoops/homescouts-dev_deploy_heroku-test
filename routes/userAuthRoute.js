@@ -26,7 +26,13 @@ const {regdetailsverify,logdetailsverify,googleregdetailsverify,decodeandpasswor
 
   user.post('/registration/otpverify',function (req, res) {
     const data = req.body;
+<<<<<<< HEAD
     userAuthController.otpverify(data, function (response) {
+=======
+    console.log("Registration OTP Verify Route - Request body:", data);
+    userAuthController.otpverify(data, function (response) {
+      console.log("Registration OTP Verify Route - Controller response:", response);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
       res.send(response);
     });
   });
@@ -55,7 +61,13 @@ const {regdetailsverify,logdetailsverify,googleregdetailsverify,decodeandpasswor
 
   user.post('/resetotpverify', function (req, res) {
     var sbrrdata = req.body;
+<<<<<<< HEAD
     userAuthController.otpverify(sbrrdata, function (response) {
+=======
+    console.log("Reset OTP Verify Route - Request body:", sbrrdata);
+    userAuthController.otpverify(sbrrdata, function (response) {
+      console.log("Reset OTP Verify Route - Controller response:", response);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
       res.send(response);
     });
   });

@@ -39,11 +39,19 @@ const detailschecking=async (req,res,next)=>{
                                 charset: 'numeric'
                             });
                                 const hash = otpcode;
+<<<<<<< HEAD
+=======
+                                console.log("Registration Middleware - Generated OTP:", otpcode, "for email:", data.email);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                 userschema.updateOne(
                                 { email: data.email },
                                 { $set: { currentOtp: hash } }
                             ).exec(function (err, result) {
                                     if (err) {
+<<<<<<< HEAD
+=======
+                                        console.log("Registration Middleware - Error updating OTP in database:", err);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                         return(res.send({
                                             success: true,
                                             statuscode: 200,
@@ -52,8 +60,22 @@ const detailschecking=async (req,res,next)=>{
                                         }))
                                     }
                                     else{
+<<<<<<< HEAD
                                         var transporter = nodemailer.createTransport({
                                             service: '',
+=======
+                                        console.log("Registration Middleware - OTP successfully stored in database for email:", data.email, "Update result:", result);
+                                        // Verify the OTP was actually stored
+                                        userschema.findOne({ email: data.email }, { currentOtp: 1 }, function(verifyErr, verifyResult) {
+                                            if (verifyErr) {
+                                                console.log("Registration Middleware - Error verifying OTP storage:", verifyErr);
+                                            } else {
+                                                console.log("Registration Middleware - Verified OTP in database:", verifyResult);
+                                            }
+                                        });
+                                        var transporter = nodemailer.createTransport({
+                                            service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                             auth: {
                                                 user: config.emailauth.user,
                                                 pass: config.emailauth.passKey
@@ -69,7 +91,11 @@ const detailschecking=async (req,res,next)=>{
                                             };
                                             transporter.sendMail(mailOptions, function(error, info){
                                             if (error) {
+<<<<<<< HEAD
                                                 
+=======
+                                                console.log("Registration Middleware - Email sending error:", error);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                                 return(res.send({
                                                                 success: false,
                                                                 statuscode: 400,
@@ -77,6 +103,10 @@ const detailschecking=async (req,res,next)=>{
                                                                 response: error
                                                         }))
                                             } else {
+<<<<<<< HEAD
+=======
+                                                console.log("Registration Middleware - Email sent successfully to:", data.email);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                                 return(res.send({
                                                     success: true,
                                                     statuscode: 200,

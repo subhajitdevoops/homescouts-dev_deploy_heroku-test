@@ -43,7 +43,11 @@ var userAuthController = {
                                     if (!err) {
                                        
                                                     var transporter = nodemailer.createTransport({
+<<<<<<< HEAD
                                                     service: '',
+=======
+                                                    service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                                     auth: {
                                                         user: config.emailauth.user,
                                                         pass: config.emailauth.passKey
@@ -132,7 +136,11 @@ var userAuthController = {
           //////////////////
                         var temppassword= data.password
                         var transporter = nodemailer.createTransport({
+<<<<<<< HEAD
                                                                 service: '',
+=======
+                                                                service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                                                 auth: {
                                                                     user: config.emailauth.user,
                                                                     pass: config.emailauth.passKey
@@ -309,7 +317,11 @@ var userAuthController = {
                                 ).exec(function (err, result) {
                                         if (!err) {
                                                     var transporter = nodemailer.createTransport({
+<<<<<<< HEAD
                                                     service: '',
+=======
+                                                    service: 'gmail',
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                                     auth: {
                                                         user: config.emailauth.user,
                                                         pass: config.emailauth.passKey
@@ -364,9 +376,17 @@ var userAuthController = {
     //For OTP verify for forget password
     otpverify:function (data, callback) {
     try{
+<<<<<<< HEAD
                 userschema.findOne( { $or: [ { _id: data._id }, { email: data.email } ] }, { _id: 1, currentOtp: 1 },
                 function (err, result) {
                 if (err) {
+=======
+                console.log("OTP Verification - Input data:", data);
+                userschema.findOne( { $or: [ { _id: data._id }, { email: data.email } ] }, { _id: 1, currentOtp: 1 },
+                function (err, result) {
+                if (err) {
+                    console.log("OTP Verification - Database error:", err);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                     callback({
                     success: false,
                     statuscode: 505,
@@ -375,7 +395,13 @@ var userAuthController = {
                     })
                 }
                 else {
+<<<<<<< HEAD
                     if (result == null) {
+=======
+                    console.log("OTP Verification - Database result:", result);
+                    if (result == null) {
+                        console.log("OTP Verification - User not found");
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                     callback({
                         success: false,
                         statuscode: 505,
@@ -383,7 +409,23 @@ var userAuthController = {
                     })
                     }
                     else {  
+<<<<<<< HEAD
                     if (result.currentOtp === data.otp) {
+=======
+                        console.log("OTP Verification - Comparing OTPs. Received:", data.otp, "Type:", typeof data.otp, "Stored:", result.currentOtp, "Type:", typeof result.currentOtp);
+                        console.log("OTP Verification - String comparison:", String(result.currentOtp) === String(data.otp));
+                        console.log("OTP Verification - Direct comparison:", result.currentOtp === data.otp);
+                        
+                        // Try multiple comparison methods
+                        const otpMatch = result.currentOtp === data.otp || 
+                                       String(result.currentOtp) === String(data.otp) ||
+                                       Number(result.currentOtp) === Number(data.otp);
+                        
+                        console.log("OTP Verification - Final match result:", otpMatch);
+                        
+                    if (otpMatch) {
+                        console.log("OTP Verification - OTP matched, updating user verification status");
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                         userschema.updateOne({ $or: [ { _id: data._id }, { email: data.email } ] },{ $set: { is_verified: 1 } }).exec();
                         callback({
                         success: true,
@@ -393,6 +435,10 @@ var userAuthController = {
                         })
                     }
                     else {
+<<<<<<< HEAD
+=======
+                        console.log("OTP Verification - OTP mismatch");
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                         callback({
                         success: false,
                         statuscode: 505,
@@ -405,6 +451,10 @@ var userAuthController = {
             
     }
     catch(err){
+<<<<<<< HEAD
+=======
+        console.log("OTP Verification - Exception:", err);
+>>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
         callback({
             success: false,
             statuscode: 500,
