@@ -1,0 +1,35 @@
+{
+        "adminAuthUrl":"http://localhost:9000/admin/",
+        "userAuthUrl":"http://localhost:9000/user/",
+        "adminServiceUrl":"http://localhost:9000/adminService/",
+        "userServiceUrl":"http://localhost:9000/userService/",
+        "baseurl":"http://localhost:9000/",
+        "anonymousChatSocketUrl":"http://localhost:9000?type=anonymous",
+        "chatSocketUrl":"http://localhost:9000?type=chat",
+        "producationString":"mongodb+srv://codermaniaa:ANpqZdvdxXJhVRYW@cluster0.yktxz0d.mongodb.net",
+        "port":9000,
+        "socketPort":9002,
+        "emailauth": {
+                "user": "homescoutshouse@gmail.com",
+                "passKey": "tpnkdiiknxasgdxa",
+                "port":  465,
+                "smtp_host" : "smtp.gmail.com",
+                "email_from": "homescoutshouse@gmail.com"
+        },
+        "jwtsecretKey" : "hyrgqwjdfbw4534efqrwer2q38945765",
+        "googleAuth":{
+            "secretKey":"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"
+        },
+         "ImageKit":{
+                "publicKey": "public_GFf4EuKq8XnBRagNyroULr8r4MY=",
+                "urlEndpoint": "https://ik.imagekit.io/homescouts",
+                "transformationPosition": "path",
+                "privateKey": "private_CiuAUu8YJyzdbl+g7pIrXlbM7uw=",
+                "authenticationEndpoint": "https://homescouts.in/auth"
+              },
+         "fast2sms":{
+                "authorization":"mvEnBxP0Llg6IfojdXMi9QYJK128qrWyTzN3DCawueR7ShVAF4hlHUd2i3CIpDV5atwJXn8L7EsyzrRu",
+                "url":"https://www.fast2sms.com/dev/bulkV2"
+         }     
+
+}

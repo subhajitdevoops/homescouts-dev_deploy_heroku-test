@@ -1,0 +1,7 @@
+{
+    
+    "scripts": {
+                  "generate-swagger": "node ./generateSwagger.js"
+               }  
+
+}

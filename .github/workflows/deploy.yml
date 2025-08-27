@@ -1,0 +1,32 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - dev_deploy_heroku  # Trigger this workflow on push to the dev_deploy_heroku branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu environment
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3  # Checkout the latest code from the repo
+
+    - name: Set up SSH for EC2
+      run: |
+        mkdir -p ~/.ssh
+        # Add EC2 instance's public key to known hosts to avoid SSH warnings
+        ssh-keyscan -H <EC2_PUBLIC_IP> >> ~/.ssh/known_hosts
+
+    - name: Deploy Application to EC2
+      env:
+        GITHUB_USERNAME: ${{ secrets.REPO_USERNAME }}  # GitHub username secret
+        GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}  # GitHub token secret
+      run: |
+        ssh -i ~/.ssh/id_rsa ec2-user@<EC2_PUBLIC_IP> << EOF
+        cd /path/to/your/app  # Navigate to your app directory
+        git pull https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/<username>/<repo>.git  # Pull latest code from GitHub
+        npm install  # Install dependencies
+        pm2 restart app.js || pm2 start app.js --name app  # Restart or start the app using PM2
+        EOF
