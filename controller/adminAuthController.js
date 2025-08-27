@@ -123,7 +123,6 @@ var adminAuthController = {
                                     { $set: { currentOtp: hash } }
                                   ).exec(function (err, result) {
                                         if (!err) {
-<<<<<<< HEAD
                                                     var transporter = nodemailer.createTransport({
                                                     service: '',
                                                     auth: {
@@ -133,17 +132,6 @@ var adminAuthController = {
                                                     port:config.emailauth.port,
                                                     host:config.emailauth.smtp_host
                                                     });
-=======
-                                                                    var transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: config.emailauth.user,
-                        pass: config.emailauth.passKey
-                    },
-                    port:config.emailauth.port,
-                    host:config.emailauth.smtp_host
-                });
->>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                                                     var mailOptions = {
                                                     from: config.emailauth.email_from,
                                                     to: data.email,
@@ -210,18 +198,8 @@ var adminAuthController = {
                     })
                     }
                     else {  
-<<<<<<< HEAD
                     if (result.currentOtp === data.otp) {
                         userschema.updateOne({ email: data.email },{ $set: { is_verified: 1 } }).exec();
-=======
-                        // Try multiple comparison methods to handle data type mismatches
-                        const otpMatch = result.currentOtp === data.otp || 
-                                       String(result.currentOtp) === String(data.otp) ||
-                                       Number(result.currentOtp) === Number(data.otp);
-                        
-                        if (otpMatch) {
-                            userschema.updateOne({ email: data.email },{ $set: { is_verified: 1 } }).exec();
->>>>>>> 8770988b347533811be06c508f1d2e01ce140eec
                         callback({
                         success: true,
                         statuscode: 200,
